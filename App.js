@@ -1,6 +1,9 @@
 import React from 'react';
-import Servicos from './src/telas/serviços';
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR'
+
+import Carrinho from './src/Telas/Carrinho';
 
 export default function App() {
-  return <Servicos/>
+  return <Carrinho/>
 }

@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-    preecher: {
+    preencher: {
         flex: 1,
     }
 });
