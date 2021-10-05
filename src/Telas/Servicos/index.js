@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FlatList } from "react-native";
 
-import Item from './item';
+import Item from './Item';
 
 import TelaPadrao from '../../Componentes/TelaPadrao';
 
