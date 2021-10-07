@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Servicos from './Telas/Servicos'
-import { Carrinho } from './Telas/Carrinho'
-import { cores } from './estilos'
+import Servicos from '../Telas/Servicos'
+import { Carrinho } from '../Telas/Carrinho'
+import { cores } from '../estilos'
 import Icon from 'react-native-vector-icons/Entypo'
 
 const Tab = createBottomTabNavigator()

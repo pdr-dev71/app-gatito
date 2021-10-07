@@ -2,7 +2,7 @@ import React from 'react';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR'
 import TelaPadrao from './src/Componentes/TelaPadrao';
-import Rotas from './src/Rotas';
+import Rotas from './src/navegacao/Rotas';
 import { Provider } from 'react-redux';
 import { store } from './src/Store'
 
