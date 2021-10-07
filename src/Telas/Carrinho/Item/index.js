@@ -4,8 +4,13 @@ import Botao from '../../../Componentes/Botao';
 import CampoInteiro from '../../../Componentes/CampoInteiro';
 import estilos from './estilos';
 
+import { useDispatch } from 'react-redux';
+import { actions } from '../../../Store/Carrinho';
 
-export default function Item({ nome, preco, descricao, quantidade: quantidadeInicial }) {
+export default function Item({ nome, preco, descricao, quantidade: quantidadeInicial, index }) {
+    
+    const dispatch = useDispatch();
+
     const [quantidade, setQuantidade] = useState(quantidadeInicial)
     const [total, setTotal] = useState(preco * quantidadeInicial)
 
@@ -44,7 +49,7 @@ export default function Item({ nome, preco, descricao, quantidade: quantidadeIni
                             style: 'currency', currency: 'BRL'
                         }).format(total)} </Text>
                 </View>
-                <Botao valor="Remover do Carrinho" acao={() => { }} />
+                <Botao valor="Remover do Carrinho" acao={() => {dispatch(actions.remove(index)) }} />
 
             </View>
         </View>

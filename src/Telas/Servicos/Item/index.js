@@ -1,11 +1,29 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View} from 'react-native';
+import { Text, TouchableOpacity, View, Alert} from 'react-native';
 import Botao from '../../../Componentes/Botao';
 import CampoInteiro from '../../../Componentes/CampoInteiro';
-
 import estilos from './estilos'
 
-export default function Item({nome, preco, descricao}){
+import { useDispatch } from 'react-redux';
+import { actions } from '../../../Store/Carrinho'
+
+export default function Item({id, nome, preco, descricao}){
+    const mostraConfirmacao = () => {
+        Alert.alert(
+            "Deseja adicionar o produto?"
+            [   
+                {
+                    text: "sim",
+                    onPress: () => console.log("Acao escolhida sim")
+                }
+                
+            ]
+        )
+    }
+
+    const dispatch = useDispatch();
+
+
     const [quantidade, setQuantidade] = useState(1)
     const [total, setTotal] = useState(preco)
     const [expandir, setExpandir] = useState(false);
@@ -22,6 +40,9 @@ export default function Item({nome, preco, descricao}){
     const inverteExpandir = () =>{
         setExpandir(!expandir);
         atualizaQuantidadeTotal(1);
+    }
+    const adicionaNoCarrinho = () => {
+        dispatch(actions.add({id, nome, preco, descricao, quantidade}))
     }
     return <>
     <TouchableOpacity style = {estilos.info}onPress={inverteExpandir}>
@@ -47,7 +68,8 @@ export default function Item({nome, preco, descricao}){
                 style: 'currency', currency: 'BRL'
             }).format(total)} </Text>
             </View>
-                <Botao valor = "Adicionar no Carrinho" acao = {() => {}}/>
+                <Botao valor = "Adicionar no Carrinho" acao = {adicionaNoCarrinho} onPress={mostraConfirmacao}/>
+                
 
         </View>
     </View>

@@ -8,6 +8,7 @@ import TelaPadrao from '../../Componentes/TelaPadrao';
 
 
 
+
 const servicos = [
         
     {
@@ -35,6 +36,7 @@ const servicos = [
 ]
 
 export default function Servicos(){
+
     return <TelaPadrao>
         <FlatList
             data={servicos}

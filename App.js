@@ -1,13 +1,20 @@
 import React from 'react';
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR'
-
-import Carrinho from './src/Telas/Carrinho';
 import TelaPadrao from './src/Componentes/TelaPadrao';
 import Rotas from './src/Rotas';
+import { Provider } from 'react-redux';
+import { store } from './src/Store'
 
 
 
 export default function App() {
-  return <TelaPadrao><Rotas/></TelaPadrao>
+  return (
+    <Provider store={store}>
+      <TelaPadrao>
+        <Rotas/>
+      </TelaPadrao>
+    </Provider>
+  )
+
 }
