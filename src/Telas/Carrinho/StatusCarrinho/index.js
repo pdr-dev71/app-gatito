@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
-import estilos from './estilos'
+import { View, Text} from 'react-native';
+import Botao from '../../../Componentes/Botao'
+import estilos from '../StatusCarrinho/estilos'
 import { useDispatch } from 'react-redux';
 import { actions } from '../../../Store/Carrinho';
 
@@ -18,7 +19,7 @@ export default function StatusCarrinho({ total }) {
             </Text>
         </View>
         <View style={estilos.botao}>
-            <Button style={estilos.botao} valor='Concluir Pedido' invertido='true' acao={() => {dispatch(actions.reset())}} />
+            <Botao style={estilos.botao} valor='Concluir Pedido' invertido='true' acao={() => {dispatch(actions.reset())}} />
         </View>
     </View>
 }
