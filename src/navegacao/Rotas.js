@@ -7,14 +7,14 @@ import { cores } from '../estilos'
 
 const Tab = createBottomTabNavigator()
 
-export default function Rotas () {
+export default function Rotas() {
   return (
     <NavigationContainer>
       <Tab.Navigator
         tabBarOptions={{
           activeTintColor: cores.roxo,
           inactiveTintColor: cores.claro,
-          activeBackgroundColor: cores.roxo,
+          activeBackgroundColor: cores.laranja,
           inactiveBackgroundColor: cores.laranja,
           style: {
             height: 70
@@ -25,8 +25,6 @@ export default function Rotas () {
             fontWeight: 'bold',
             fontSize: 16,
             lineHeight: 21,
-            marginTop: 3,
-            paddingTop: 21,
             backgroundColor: cores.laranja
           },
           keyboardHidesTabBar: true

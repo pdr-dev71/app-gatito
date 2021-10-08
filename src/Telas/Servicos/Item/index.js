@@ -10,15 +10,21 @@ import { actions } from '../../../Store/Carrinho'
 export default function Item({id, nome, preco, descricao}){
     const mostraConfirmacao = () => {
         Alert.alert(
-            "Deseja adicionar o produto?"
+            "Confirmação",
+            "Deseja adicionar o produto?",
             [   
                 {
-                    text: "sim",
-                    onPress: () => console.log("Acao escolhida sim")
+                    text: "Não",
+                    onPress: () => false,
+                    style: "cancel"
+                },
+                {
+                    text: "Sim",
+                    onPress: adicionaNoCarrinho
                 }
                 
             ]
-        )
+        );
     }
 
     const dispatch = useDispatch();
@@ -43,6 +49,9 @@ export default function Item({id, nome, preco, descricao}){
     }
     const adicionaNoCarrinho = () => {
         dispatch(actions.add({id, nome, preco, descricao, quantidade}))
+        Alert.alert(
+            "Produto Adicionado ao Carrinho!"
+        );
     }
     return <>
     <TouchableOpacity style = {estilos.info}onPress={inverteExpandir}>
@@ -68,7 +77,7 @@ export default function Item({id, nome, preco, descricao}){
                 style: 'currency', currency: 'BRL'
             }).format(total)} </Text>
             </View>
-                <Botao valor = "Adicionar no Carrinho" acao = {adicionaNoCarrinho} onPress={mostraConfirmacao}/>
+                <Botao valor = "Adicionar no Carrinho" acao = {mostraConfirmacao}/>
                 
 
         </View>

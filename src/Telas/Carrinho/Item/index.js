@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Alert } from 'react-native';
 import Botao from '../../../Componentes/Botao';
 import CampoInteiro from '../../../Componentes/CampoInteiro';
 import estilos from './estilos';
@@ -49,7 +49,10 @@ export default function Item({ nome, preco, descricao, quantidade: quantidadeIni
                             style: 'currency', currency: 'BRL'
                         }).format(total)} </Text>
                 </View>
-                <Botao valor="Remover do Carrinho" acao={() => {dispatch(actions.remove(index)) }} />
+                <Botao valor="Remover do Carrinho" acao={() => {
+                    dispatch(actions.remove(index));
+                    Alert.alert('Item removido do carrinho');
+                    }} />
 
             </View>
         </View>
